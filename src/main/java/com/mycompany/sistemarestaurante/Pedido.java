@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Pedido {
+    //Atributos
     private int id;
     private Mesa mesa;
     private Usuario usuario;
@@ -11,7 +12,15 @@ public class Pedido {
     private String estado;
     private double valorTotal;
     private ArrayList<DetallePedido> detalles;
-
+    
+    //Constructor vacio
+    public Pedido(){
+        this.estado = "Disponible";
+        this.valorTotal = 0.00;
+        this.detalles = new ArrayList<>();
+    }
+    
+    //Método constructor
     public Pedido(int id, Mesa mesa, Usuario usuario) {
         this.id = id;
         this.mesa = mesa;
@@ -22,10 +31,37 @@ public class Pedido {
         this.detalles = new ArrayList<>();
     }
     
+    //Getters
+    
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    
+
+    public String getEstado() {
+        return estado;
+    }
+    
+    //Setters
+    
+    public void setEstado(String estado) {
+        String estadoNormalizado = estado.toLowerCase();
+        
+        if ("pendiente".equals(estadoNormalizado) || "entregado".equals(estadoNormalizado)) {
+            this.estado = estadoNormalizado;
+        }
+    }
+    
+    //Método agregarDetalle
     public void agregarDetalle(DetallePedido detalle){
         this.detalles.add(detalle);
     }
     
+    //Método calcularTotal
     public double calcularTotal() {
         double total = 0;
         
@@ -37,6 +73,7 @@ public class Pedido {
         return valorTotal;
     }
     
+    //Método mostrarDatos
     public void mostrarDatos() {
         System.out.println("ID Pedido: " + id);
         System.out.println("Fecha y Hora: " + fechaHora);
@@ -50,22 +87,4 @@ public class Pedido {
         }
         System.out.println("Total: $" + calcularTotal());
     }
-
-    public Mesa getMesa() {
-        return mesa;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    
 }

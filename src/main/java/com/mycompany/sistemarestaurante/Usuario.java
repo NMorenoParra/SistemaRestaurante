@@ -2,6 +2,7 @@ package com.mycompany.sistemarestaurante;
 import java.time.LocalDate;
 
 public class Usuario {
+    //Atributos
     private int id;
     private int documento;
     private String nombreCompleto;
@@ -11,6 +12,12 @@ public class Usuario {
     private LocalDate fechaRegistro;
     private String rol;
     
+    //Constructor vacio
+    public Usuario(){
+        this.fechaRegistro = LocalDate.now();
+    }
+    
+    //Método Constructor
     public Usuario(int id, int documento, String nombreCompleto, String correo, String clave, String celular, String rol) {
         this.id = id;
         this.documento = documento;
@@ -21,19 +28,33 @@ public class Usuario {
         this.fechaRegistro = LocalDate.now();
         this.rol = rol;
     }
-    //Felicidades, hallaste un easteregg en el código - CEMM
+    
+    //Getters
+   
     public String getNombreCompleto() {
         return nombreCompleto;
-    }
-
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
     }
     
     public String getRol() {
         return rol;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
     
+    
+    
+    //Setters
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+    
+    //Método ver Datos
     public void verDatos() {
        String datos = "Id: " + id + "\n"
                + "Nombre: " + nombreCompleto + "\n"

@@ -1,12 +1,12 @@
 
 package com.mycompany.sistemarestaurante;
-import java.time.LocalDateTime;
+
 
 public class SistemaRestaurante {
 
     public static void main(String[] args) {
         // Crear usuario
-        Usuario usuario = new Usuario(1, 12345678, "Nicolás Moreno", "nico@unal.edu.co", "clave123", "3111234567", "Mesero");
+        Usuario usuario = new Usuario(1, 12345678, "Nicolas Moreno", "nico@unal.edu.co", "clave123", "3111234567", "Mesero");
         
         // Crear mesa
         Mesa mesa = new Mesa(1, 5, 4);
@@ -31,7 +31,7 @@ public class SistemaRestaurante {
         pedido.calcularTotal();
 
         // Crear factura
-        Factura factura = new Factura(1, pedido, LocalDateTime.now());
+        Factura factura = new Factura(1, pedido);
         factura.calcularTotal();
 
         // Mostrar factura
