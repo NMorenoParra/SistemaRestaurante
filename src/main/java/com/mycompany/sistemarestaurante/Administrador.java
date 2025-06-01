@@ -2,6 +2,16 @@
 package com.mycompany.sistemarestaurante;
 
 public class Administrador extends Usuario{
+    
+    public Administrador(){
+        super();
+    }
+
+    public Administrador(int id, int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
+        super(id, documento, nombreCompleto, rol, correo, clave, celular);
+    }
+    
+    
     //Método registrar
     public void registrarUsuario(){
         /*
