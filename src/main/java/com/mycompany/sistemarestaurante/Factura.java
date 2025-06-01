@@ -30,19 +30,33 @@ public class Factura {
     
     //Método calcularTotal
     public double calcularTotal() {
-        this.total = pedido.calcularTotal();
-        return this.total;
+        double costo = pedido.calcularTotal();
+        this.total = costo;
+        return costo;
     }
     
     //Método mostrarFactura
-    public void mostrarFactura() {
-        System.out.println("----- FACTURA -----");
-        System.out.println("Factura ID: " + id);
-        System.out.println("Fecha y hora: " + fechaHora);
-        System.out.println("Mesa: " + pedido.getMesa().getNumero());
-        System.out.println("Atendido por: " + pedido.getUsuario().getNombreCompleto());
-        System.out.println("Estado del pedido: " + pedido.getEstado());
-        System.out.println("Total a pagar: $" + String.format("%.2f", total));
+    @Override
+    public String toString() {
+        String factura = "----- FACTURA -----\n";
+        factura += "Factura ID: " + id + "\n";
+        factura += "Fecha y hora: " + fechaHora + "\n";
+        factura += "Mesa: " + pedido.getMesa().getNumero() + "\n";
+        factura += "Atendido por: " + pedido.getUsuario().getNombreCompleto() + "\n";
+        factura += "Estado del pedido: " + pedido.getEstado() + "\n";
+        factura += "Total a pagar: $" + String.format("%.2f", total) + "\n";
+        return factura;
+    }
+    
+    //Método generar factura
+    public void generarFactura(){
+        /*Aqui deberia generarse un ingreso con el calcular totl*/
+        if(total == 0.0){
+            calcularTotal();
+        }
+        
+        String descripcion = "Venta - Pedido Id: " + pedido.getId();
+        Contabilidad.getInstance().registrarIngreso(descripcion,total);
     }
     
 }

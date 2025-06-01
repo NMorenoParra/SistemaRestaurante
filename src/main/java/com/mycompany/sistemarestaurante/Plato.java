@@ -1,5 +1,6 @@
 
 package com.mycompany.sistemarestaurante;
+import java.util.ArrayList;
 
 public class Plato {
     //Atributos
@@ -8,18 +9,22 @@ public class Plato {
     private String descripcion;
     private double precio;
     private String categoria;
+    private ArrayList<IngredientePlato> ingredientes;
     
     //Constructor vacio
     public Plato() {
+        this.precio = 0.00;
+        this.ingredientes = new ArrayList<>();
     }
     
     //Método constructor
-    public Plato(int id, String nombre, String descripcion, double precio, String categoria) {
+    public Plato(int id, String nombre, String descripcion, String categoria) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio = precio;
+        this.precio = 0.00;
         this.categoria = categoria;
+        this.ingredientes = new ArrayList<>();
     }
  
     //Getters
@@ -40,15 +45,35 @@ public class Plato {
         }
     }
     
+    //Método agregar ingredients
+    public void agregarIngrediente(IngredientePlato ingrediente){
+        ingredientes.add(ingrediente);
+    }
+    
+    //Método calcular precio
+    public double calcularPrecio(){
+        double total = 0.0;
+        for(IngredientePlato i: ingredientes){
+            total += i.getCantidad()*i.getProducto().getPrecioUnitario();
+        }
+        this.precio = total;
+        return total;
+    }
+    
+    //Método calcular precioVenta
+    public double calcularPrecioVenta(){
+        return this.precio*1.5;
+    }
     
     //Método mostrarDatos
-    public void mostrarDatos() {
+    @Override
+    public String toString() {
         String datos = "Id: " + id + "\n"
                 + "Nombre: " + nombre + "\n"
                 + "Descripción: " + descripcion + "\n"
                 + "Precio: " + precio + "\n"
                 + "Categoria: " + categoria + "\n";
         
-        System.out.println(datos);
+        return datos;
     }    
 }

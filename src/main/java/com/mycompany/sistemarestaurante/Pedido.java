@@ -15,7 +15,7 @@ public class Pedido {
     
     //Constructor vacio
     public Pedido(){
-        this.estado = "Disponible";
+        this.estado = "Sin entregar";
         this.valorTotal = 0.00;
         this.detalles = new ArrayList<>();
     }
@@ -45,9 +45,12 @@ public class Pedido {
     public String getEstado() {
         return estado;
     }
+
+    public int getId() {
+        return id;
+    }
     
     //Setters
-    
     public void setEstado(String estado) {
         String estadoNormalizado = estado.toLowerCase();
         
@@ -74,17 +77,22 @@ public class Pedido {
     }
     
     //Método mostrarDatos
-    public void mostrarDatos() {
-        System.out.println("ID Pedido: " + id);
-        System.out.println("Fecha y Hora: " + fechaHora);
-        System.out.println("Usuario: " + usuario.getNombreCompleto());
-        System.out.println("Mesa: " + mesa.getNumero());
-        System.out.println("Estado: " + estado);
-        System.out.println("Detalles:");
-        
+    @Override
+    public String toString() {
+        String result = "ID Pedido: " + id + "\n" +
+                        "Fecha y Hora: " + fechaHora + "\n" +
+                        "Usuario: " + usuario.getNombreCompleto() + "\n" +
+                        "Mesa: " + mesa.getNumero() + "\n" +
+                        "Estado: " + estado + "\n" +
+                        "Detalles:\n";
+
         for (DetallePedido detalle : detalles) {
-            System.out.println("- " + detalle.getPlato().getPrecio() + " x " + detalle.getCantidad() + " = " + detalle.getSubtotal());
+            result += "- " + detalle.getPlato().getPrecio() + " x " +
+                      detalle.getCantidad() + " = " +
+                      detalle.getSubtotal() + "\n";
         }
-        System.out.println("Total: $" + calcularTotal());
+
+        result += "Total: $" + calcularTotal();
+        return result;
     }
 }

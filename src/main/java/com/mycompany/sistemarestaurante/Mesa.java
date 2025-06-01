@@ -48,13 +48,14 @@ public class Mesa {
     }
     
     // Método mostrarInfo
-    public  void mostrarInfo() {
+    @Override
+    public  String toString() {
         String info = "Id: " + id + "\n"
                 + "No. Mesa: " + numero + "\n"
                 + "Capacidad: " + capacidad + "\n"
                 + "Estado: " + estado + "\n";
         
-        System.out.println(info);
+        return info;
     }
     
 }

@@ -38,7 +38,8 @@
         
         //Método calcularSubtotal
         public double calcularSubtotal() {
-            this.subtotal = plato.getPrecio() * cantidad;
-            return subtotal;
+            double sub = plato.getPrecio() * cantidad;
+            this.subtotal = sub;
+            return sub;
         }        
     }

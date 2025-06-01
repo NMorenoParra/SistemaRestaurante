@@ -6,11 +6,11 @@ public class Usuario {
     private int id;
     private int documento;
     private String nombreCompleto;
+    private String rol;
     private String correo;
     private String clave;
     private String celular;
     private LocalDate fechaRegistro;
-    private String rol;
     
     //Constructor vacio
     public Usuario(){
@@ -18,15 +18,15 @@ public class Usuario {
     }
     
     //Método Constructor
-    public Usuario(int id, int documento, String nombreCompleto, String correo, String clave, String celular, String rol) {
+    public Usuario(int id, int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
         this.id = id;
         this.documento = documento;
         this.nombreCompleto = nombreCompleto;
+        this.rol = rol;
         this.correo = correo;
         this.clave = clave;
         this.celular = celular;
         this.fechaRegistro = LocalDate.now();
-        this.rol = rol;
     }
     
     //Getters
@@ -55,7 +55,8 @@ public class Usuario {
     }
     
     //Método ver Datos
-    public void verDatos() {
+    @Override
+    public String toString() {
        String datos = "Id: " + id + "\n"
                + "Nombre: " + nombreCompleto + "\n"
                + "Correo: " + correo + "\n"
@@ -63,7 +64,7 @@ public class Usuario {
                + "Rol: " + rol + "\n"
                + "Fecha Registro: " + fechaRegistro + "\n";
        
-        System.out.println(datos);
+        return datos;
     }
     
 }
