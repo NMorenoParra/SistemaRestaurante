@@ -8,8 +8,8 @@ public class Mesero extends Usuario{
     }
     
     
-    public Mesero(int id, int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
-        super(id, documento, nombreCompleto, rol, correo, clave, celular);
+    public Mesero(int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
+        super(documento, nombreCompleto, rol, correo, clave, celular);
     }
     
 }

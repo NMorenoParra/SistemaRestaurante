@@ -18,8 +18,7 @@ public class Usuario {
     }
     
     //Método Constructor
-    public Usuario(int id, int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
-        this.id = id;
+    public Usuario(int documento, String nombreCompleto, String rol, String correo, String clave, String celular) {
         this.documento = documento;
         this.nombreCompleto = nombreCompleto;
         this.rol = rol;
