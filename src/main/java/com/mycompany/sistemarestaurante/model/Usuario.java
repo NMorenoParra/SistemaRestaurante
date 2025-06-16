@@ -1,4 +1,4 @@
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 import java.time.LocalDate;
 
 public class Usuario {
@@ -29,30 +29,74 @@ public class Usuario {
         this.fechaRegistro = LocalDate.now();
     }
     
-    //Getters
-   
+    //Getters y Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(int documento) {
+        this.documento = documento;
+    }
+
     public String getNombreCompleto() {
         return nombreCompleto;
     }
-    
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
     public String getRol() {
         return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getCorreo() {
         return correo;
     }
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
     public String getCelular() {
         return celular;
     }
-    
-    
-    
-    //Setters
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+    
+   
+  
     
     //Método ver Datos
     @Override

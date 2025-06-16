@@ -1,5 +1,5 @@
 
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 import java.util.ArrayList;
 
 public class Plato {

@@ -1,8 +1,8 @@
 
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 
 public class Cocinero extends Usuario{
-    public String especialidad;
+    private String especialidad;
     
     //Constructor vacio
 

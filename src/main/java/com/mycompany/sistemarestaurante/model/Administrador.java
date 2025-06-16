@@ -1,5 +1,5 @@
 
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 
 public class Administrador extends Usuario{
     

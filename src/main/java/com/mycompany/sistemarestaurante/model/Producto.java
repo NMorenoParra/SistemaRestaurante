@@ -1,4 +1,4 @@
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 
 public class Producto {
     //Atributos

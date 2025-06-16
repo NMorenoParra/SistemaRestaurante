@@ -1,5 +1,5 @@
 
-package com.mycompany.sistemarestaurante;
+package com.mycompany.sistemarestaurante.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
